@@ -16,12 +16,10 @@ function convertidorTemp(celsius) {
 
 // PUNTO 2 
 function resolvedor(a, b, c, signo) {
-
     const discriminante = b * b - 4 * a * c
     
     if (discriminante < 0) {
-        console.log("El discriminante es negativo, no hay soluciones reales.")
-        return
+        return "El discriminante es negativo, no hay soluciones reales."
     }
     
     const raizDiscriminante = Math.sqrt(discriminante)
@@ -29,22 +27,28 @@ function resolvedor(a, b, c, signo) {
     const x1 = (-b + raizDiscriminante) / (2 * a)
     const x2 = (-b - raizDiscriminante) / (2 * a)
     
+    if (discriminante === 0) {
+
+        return `${x1}`
+    }
+
     if (signo === 'positivo') {
-        console.log(`Resultado positivo: ${x1}`)
+        return ` ${x1}`
     } else if (signo === 'negativo') {
-        console.log(`Resultado negativo: ${x2}`)
+        return ` ${x2}`
     } else {
-        console.log("El parámetro 'signo' debe ser 'positivo' o 'negativo'.")
+        return "El parámetro 'signo' debe ser 'positivo' o 'negativo'."
     }
 }
+
 
 const a = 1
 const b = 5
 const c = 4
 
-resolvedor(a, b, c, 'positivo')
-
-resolvedor(a, b, c, 'negativo')
+console.log(resolvedor(a, b, c, 'positivo'))
+console.log(resolvedor(a, b, c, 'negativo'))
+console.log(resolvedor(a, b, c, 'otro'))
 
 // PUNTO 3
 
